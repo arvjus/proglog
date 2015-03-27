@@ -1,5 +1,21 @@
 <p>This is the partial for list.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+
+<a href="/scripts/getlist.php">list</a>
+<br>
+
+
+<table>
+    <tr>
+        <th ng-repeat="title in list.header">{{title}}</th>
+    </tr>
+    <tr >
+        {{record}}
+    </tr>
+</table>
+
+<ul>
+    <li ng-repeat="record in list.records">
+        !{{record}}!
+        <div ng-repeat="field in record">{{field}}</div>
+    </li>
+</ul>

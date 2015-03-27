@@ -9,6 +9,11 @@ angular.module('myApp.list', ['ngRoute'])
   });
 }])
 
-.controller('ListCtrl', [function() {
-
+.controller('ListCtrl', ['$scope', '$http', function($scope, $http) {
+    var httpRequest = $http({
+        method: 'POST',
+        url: '/scripts/getlist.php'
+    }).success(function(data, status) {
+        $scope.list = data;
+    });
 }]);
