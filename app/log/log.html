@@ -1,1 +1,86 @@
-<p>This is the partial for log.</p>
+<p>Log Exercise Progress</p>
+
+<form action="/scripts/dolog.php" method="post">
+
+    <label for="date">Date:</label>
+    <input type="date" name="date" ng-model="date" ng-init="date=today">
+    <br>
+
+    <label for="duration">Duration:</label>
+    <input type="range" name="duration" ng-model="duration" ng-init="duration=15" min="0" max="60" step="5">
+    <span ng-bind="duration"></span> min
+    <br>
+
+    <label for="environment">Environment:</label>
+    <input type="radio" name="environment" value="sim">Simulator
+    <input type="radio" name="environment" value="irl">IRL
+    <br>
+
+    <label for="model">Model:</label>
+    <select name="model" ng-model="model">
+        <option ng-repeat="model in models" value="{{model.id}}">{{model.name}}</option>
+    </select>
+    <br>
+
+    <label for="weather">Weather:</label>
+    <input type="checkbox" name="weather[]" value="normal">Normal
+    <input type="checkbox" name="weather[]" value="calm">Calm
+    <input type="checkbox" name="weather[]" value="windy">Windy
+    <input type="checkbox" name="weather[]" value="cold">Cold
+    <input type="checkbox" name="weather[]" value="hot">Hot
+    <input type="checkbox" name="weather[]" value="raining">Raining
+    <input type="checkbox" name="weather[]" value="snowing">Snowing
+    <br>
+
+    <label for="speed">Speed:</label>
+    <input type="range" name="speed" ng-model="speed" ng-init="speed=100" min="50" max="130" step="10">
+    <span ng-bind="speed"></span>%
+    <br>
+
+    <label for="exercise">Exercise:</label>
+    <select name="exercise" ng-model="exercise">
+        <option ng-repeat="exercise in exercises" value="{{exercise.id}}">{{exercise.name}}</option>
+    </select>
+
+    <div ng-repeat="exercise in exercises">
+        <div ng-repeat="option in exercise.options">
+            <div ng-if="option.html == 'checkbox'">
+                <label for="{{option.name}}">{{option.display}}:</label>
+                <span ng-repeat="value in option.values">
+                    <input type="checkbox" name="{{option.name}}[]" value="{{value}}">{{value}}
+                </span>
+            </div>
+            <div ng-if="option.html == 'radio'">
+                <label for="{{option.name}}">{{option.display}}:</label>
+                <span ng-repeat="value in option.values">
+                    <input type="radio" name="{{option.name}}" value="{{value}}" checked>{{value}}
+                </span>
+            </div>
+            <div ng-if="option.html == 'range'">
+                <label for="{{option.name}}">{{option.display}}:</label>
+                <input type="range" name="{{option.name}}" ng-model="option_range" ng-init="option_range=option.default" min="{{option.min}}" max="{{option.max}}" step="{{option.step}}">
+                <span ng-bind="option_range"></span>{{option.units}}
+            </div>
+        </div>
+    </div>
+
+    <label for="rating">Rating:</label>
+    <input type="range" name="rating" ng-model="rating" ng-init="rating=0" min="0" max="5">
+    <span ng-bind="rating"></span>
+    <br>
+
+    <label for="crashes">Crashes:</label>
+    <input type="range" name="crashes" ng-model="crashes" ng-init="crashes=0" min="0" max="15">
+    <span ng-bind="crashes"></span>
+    <br>
+
+    <label for="comments">Comments:</label>
+    <input type="text" name="comments">
+    <br>
+
+    <input type="submit" value="Save">
+    <input type="reset" value="Reset">
+</form>
+
+
+

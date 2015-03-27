@@ -1,9 +1,52 @@
+[
 {
-  "Slow Piros": {
-    "speed": ["60%", "70%", "80%", "90%", "100%", "110%", "120%"],
-    "orientation": ["upright", "inverted"],
-    "rotation": ["1rpm", "2rpm", "3rpm", "4rpm", "5rpm"],
-    "direction": ["cw", "ccw"]
-  }
+  "id": "slow-piros",
+  "name": "Slow Piros",
+  "options": [
+    {
+      "name": "algo",
+      "display": "Algorithm",
+      "html": "range",
+      "min": "1",
+      "max": "12",
+      "step": "1",
+      "default": "8",
+      "units": ""
+    },
+    {
+      "name": "orient",
+      "display": "Orientation",
+      "html": "radio",
+      "values": ["inverted", "upright"]
+    },
+    {
+      "name": "rotspeed",
+      "display": "Rotation Speed",
+      "html": "range",
+      "min": "1",
+      "max": "15",
+      "step": "1",
+      "default": "2",
+      "units": " rpm"
+    },
+    {
+      "name": "rotdir",
+      "display": "Rotation Direction",
+      "html": "radio",
+      "values": ["ccw", "cw"]
+    },
+    {
+      "name": "ctrl",
+      "display": "Taken Control",
+      "html": "checkbox",
+      "values": ["cyclic", "collective", "rudder"]
+    }
+  ]
+},
+{
+  "id": "lazy-8s",
+  "name": "Lazy 8s",
+  "options": []
 }
+]
 

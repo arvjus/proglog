@@ -27,7 +27,7 @@ model
 weather (multiple choice - windy, cold, raining, ...)
 exercise (hover, lazy 8s, ...)
 exercise options (multiple choice, type dependent)
-rating
+rating (1-5)
 crashes
 comments
 
@@ -58,4 +58,5 @@ speed (60%, 70% 80%, 90%, 100%, 110%, 120%)
 orientation (upright, inverted)
 rotation (1rpm, 2rpm, 3rpm, 4rpm, 5rpm)
 direction (cw, ccw)
+control (multiple choice - cyclic, collective, rudder)
 
