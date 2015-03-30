@@ -5,7 +5,9 @@
 $source = "../data";
 $dest= "../backup/" . $_POST['target'];
 
-mkdir($dest, 0755);
+if (!file_exists($dest)) {
+    mkdir($dest, 0755, true);
+}
 foreach (
     $iterator = new RecursiveIteratorIterator(
         new RecursiveDirectoryIterator($source, RecursiveDirectoryIterator::SKIP_DOTS),
