@@ -4,6 +4,13 @@
   "name": "Slow Piros",
   "options": [
     {
+      "name": "area",
+      "display": "Area",
+      "html": "radio",
+      "default": "s",
+      "values": ["m", "l", "xl"]
+    },
+    {
       "name": "algo",
       "display": "Algorithm",
       "html": "range",
