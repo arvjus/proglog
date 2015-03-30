@@ -4,8 +4,9 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.log',
-    'myApp.list',
-    'myApp.stats',
+  'myApp.list',
+  'myApp.stats',
+  'myApp.admin',
   'myApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {

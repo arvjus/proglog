@@ -10,14 +10,15 @@
       "min": "1",
       "max": "12",
       "step": "1",
-      "default": "8",
+      "default": "10",
       "units": ""
     },
     {
       "name": "orient",
       "display": "Orientation",
       "html": "radio",
-      "values": ["inverted", "upright"]
+      "default": "upright",
+      "values": ["inverted"]
     },
     {
       "name": "rotspeed",
@@ -33,7 +34,8 @@
       "name": "rotdir",
       "display": "Rotation Direction",
       "html": "radio",
-      "values": ["ccw", "cw"]
+      "default": "cw",
+      "values": ["ccw"]
     },
     {
       "name": "ctrl",

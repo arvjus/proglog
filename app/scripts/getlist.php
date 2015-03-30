@@ -1,15 +1,20 @@
 <?php
-$header = array("date", "duration", "environment", "model", "weather", "speed", "exercise", "rating", "options", "crashes", "comments");
+/*
+ * See dolog.php for record definition.
+ *
+ * version, date, duration, environment, model, weather, speed, exercise, options, rating, crashes, comments
+ */
+$header = array("date", "duration", "environment", "model", "weather", "speed", "exercise", "options", "rating", "crashes", "comments");
 
-
-$records = array();
-$fh = fopen("../data/log.txt", "r") or die("can't open file");
+// read all log records$records = array();
+$fh = fopen("../data/log.txt", "r") or die("can't open log file");
 while(!feof($fh)) {
     $record = explode("|", chop(fgets($fh)));
     if (count($record) > 5) {
-        $records[] = $record;
+        $records[] = array_slice($record, 1);
     }
 }
 fclose($fh);
 
-echo json_encode(array("header" => $header, "records" => $records));
+// return json
+echo json_encode(array("header" => $header, "records" => array_reverse($records)));

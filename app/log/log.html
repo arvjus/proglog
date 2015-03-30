@@ -1,4 +1,4 @@
-<p>Log Exercise Progress</p>
+<h1>Log exercise progress</h1>
 
 <form action="/scripts/dolog.php" method="post">
 
@@ -12,12 +12,14 @@
     <br>
 
     <label for="environment">Environment:</label>
+    <input type="radio" name="environment" value="undefined" checked>Undefined
     <input type="radio" name="environment" value="sim">Simulator
     <input type="radio" name="environment" value="irl">IRL
     <br>
 
     <label for="model">Model:</label>
     <select name="model" ng-model="model">
+        <option value="undefined">Undefined</option>
         <option ng-repeat="model in models" value="{{model.id}}">{{model.name}}</option>
     </select>
     <br>
@@ -39,6 +41,7 @@
 
     <label for="exercise">Exercise:</label>
     <select name="exercise" ng-model="exercise">
+        <option value="undefined">Undefined</option>
         <option ng-repeat="exercise in exercises" value="{{exercise.id}}">{{exercise.name}}</option>
     </select>
 
@@ -52,8 +55,9 @@
             </div>
             <div ng-if="option.html == 'radio'">
                 <label for="{{option.name}}">{{option.display}}:</label>
+                <input type="radio" name="{{option.name}}" value="{{option.default}}" checked>{{option.default}}
                 <span ng-repeat="value in option.values">
-                    <input type="radio" name="{{option.name}}" value="{{value}}" checked>{{value}}
+                    <input type="radio" name="{{option.name}}" value="{{value}}">{{value}}
                 </span>
             </div>
             <div ng-if="option.html == 'range'">

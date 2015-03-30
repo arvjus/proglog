@@ -9,6 +9,11 @@ angular.module('myApp.stats', ['ngRoute'])
   });
 }])
 
-.controller('StatsCtrl', [function() {
-
+.controller('StatsCtrl', ['$scope', '$http', function($scope, $http) {
+    var httpRequest = $http({
+        method: 'POST',
+        url: '/scripts/getstats.php'
+    }).success(function(data, status) {
+        $scope.stats = data;
+    });
 }]);

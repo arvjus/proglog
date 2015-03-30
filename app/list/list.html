@@ -1,21 +1,11 @@
-<p>This is the partial for list.</p>
-
-<a href="/scripts/getlist.php">list</a>
-<br>
-
+<h1>List all records</h1>
 
 <table>
     <tr>
         <th ng-repeat="title in list.header">{{title}}</th>
     </tr>
-    <tr >
-        {{record}}
+    <tr ng-repeat="record in list.records">
+        <td ng-repeat="field in record track by $index">{{field}}</td>
     </tr>
 </table>
 
-<ul>
-    <li ng-repeat="record in list.records">
-        !{{record}}!
-        <div ng-repeat="field in record">{{field}}</div>
-    </li>
-</ul>

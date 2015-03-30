@@ -41,7 +41,7 @@ foreach ($_POST as $param_name => $param_val) {
     }
 }
 
-$fh = fopen("../data/log.txt", "a") or die("can't open file");
+$fh = fopen("../data/log.txt", "a") or die("can't open log file");
 fwrite($fh,
     "v1|" .
     $_POST["date"] . "|" .
@@ -59,7 +59,7 @@ fclose($fh);
 ?>
 
 <p>A new log record has been added successfully!</p>
-<a href="/#log"><input type="button" value="Back to start page"></a>
+<a href="/#log"><input type="button" value="Back"></a>
 
 </body>
 </html>
