@@ -22,7 +22,7 @@
 $fields = array("date", "duration", "environment", "model", "weather", "speed", "exercise", "rating", "crashes", "comments");
 $weather = "";
 $options = "";
-if(isset($_POST['weather'])) {
+if (isset($_POST['weather'])) {
     foreach ($_POST['weather'] as $weather_) {
         $weather .= "$weather_ ";
     }

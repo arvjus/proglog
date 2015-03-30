@@ -1,11 +1,10 @@
-<h1>Administration - backup data</h1>
+<h1>Administration</h1>
 
-<form action="/scripts/dobackup.php" method="post">
+<p>
     <label for="target">Target:</label>
-    <input type="target" name="target" ng-model="target" ng-init="target=today">
+    <input type="date" name="target" ng-model="target" ng-init="target=today">
     <br>
-    <input type="submit" value="Backup">
-</form>
-
-
-
+    <button ng-click="postBackup(target)">Backup data</button>
+</p>
+<div>{{msg}}</div>
+<div>{{err}}</div>

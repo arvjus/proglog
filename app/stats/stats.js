@@ -1,19 +1,26 @@
 'use strict';
 
 angular.module('myApp.stats', ['ngRoute'])
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/stats', {
+            templateUrl: 'stats/stats.html',
+            controller: 'StatsCtrl'
+        });
+    }])
+    .controller('StatsCtrl', ['$scope', '$http', function ($scope, $http) {
+        $scope.dateFrom = "2010-01-01";
+        $scope.dateTo = new Date().toISOString().slice(0, 10);
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/stats', {
-    templateUrl: 'stats/stats.html',
-    controller: 'StatsCtrl'
-  });
-}])
+        $scope.loadData = function (dateFrom, dateTo) {
+            var httpRequest = $http({
+                method: 'GET',
+                url: '/scripts/getstats.php',
+                params: {dateFrom: dateFrom, dateTo: dateTo}
+            }).success(function (data, status) {
+                $scope.stats = data;
+            });
+        }
 
-.controller('StatsCtrl', ['$scope', '$http', function($scope, $http) {
-    var httpRequest = $http({
-        method: 'POST',
-        url: '/scripts/getstats.php'
-    }).success(function(data, status) {
-        $scope.stats = data;
-    });
-}]);
+        // initial load
+        $scope.loadData($scope.dateFrom, $scope.dateTo);
+    }]);

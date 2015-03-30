@@ -62,7 +62,8 @@
             </div>
             <div ng-if="option.html == 'range'">
                 <label for="{{option.name}}">{{option.display}}:</label>
-                <input type="range" name="{{option.name}}" ng-model="option_range" ng-init="option_range=option.default" min="{{option.min}}" max="{{option.max}}" step="{{option.step}}">
+                <input type="range" name="{{option.name}}" ng-model="option_range" ng-init="option_range=option.default"
+                       min="{{option.min}}" max="{{option.max}}" step="{{option.step}}">
                 <span ng-bind="option_range"></span>{{option.units}}
             </div>
         </div>

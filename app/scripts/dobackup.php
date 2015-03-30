@@ -1,9 +1,6 @@
-<html>
-<body>
-
 <?php
 $source = "../data";
-$dest= "../backup/" . $_POST['target'];
+$dest = "../backup/" . $_GET['target'];
 
 if (!file_exists($dest)) {
     mkdir($dest, 0755, true);
@@ -18,11 +15,7 @@ foreach (
         copy($item, $dest . DIRECTORY_SEPARATOR . $iterator->getSubPathName());
     }
 }
+
+$json = json_encode(array("msg" => "A backup to $dest has been create successfully!", "err" => ""));
+print_r($json);
 ?>
-
-<p>A backup has been create successfully!</p>
-<a href="/#admin"><input type="button" value="Back"></a>
-
-</body>
-</html>
-

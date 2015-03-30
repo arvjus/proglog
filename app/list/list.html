@@ -1,5 +1,14 @@
 <h1>List all records</h1>
 
+<p>
+    <label for="dateFrom">From:</label>
+    <input type="date" name="dateFrom" ng-model="dateFrom">&nbsp;
+    <label for="dateTo">To:</label>
+    <input type="date" name="dateTo" ng-model="dateTo">
+    <button ng-click="loadData(dateFrom, dateTo)">Refresh</button>
+</p>
+
+<p>
 <table>
     <tr>
         <th ng-repeat="title in list.header">{{title}}</th>
@@ -8,4 +17,4 @@
         <td ng-repeat="field in record track by $index">{{field}}</td>
     </tr>
 </table>
-
+</p>

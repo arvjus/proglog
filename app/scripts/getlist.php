@@ -6,11 +6,13 @@
  */
 $header = array("date", "duration", "environment", "model", "weather", "speed", "exercise", "options", "rating", "crashes", "comments");
 
-// read all log records$records = array();
+// read log records
+$dateFrom = $_GET['dateFrom'];
+$dateTo = $_GET['dateTo'];
 $fh = fopen("../data/log.txt", "r") or die("can't open log file");
-while(!feof($fh)) {
+while (!feof($fh)) {
     $record = explode("|", chop(fgets($fh)));
-    if (count($record) > 5) {
+    if (count($record) > 5 && $record[1] >= $dateFrom && $record[1] <= $dateTo) {
         $records[] = array_slice($record, 1);
     }
 }
