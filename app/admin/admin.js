@@ -10,7 +10,7 @@ angular.module('myApp.admin', ['ngRoute'])
     .controller('AdminCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.today = new Date().toISOString().slice(0, 10);
 
-        $scope.postBackup = function (target) {
+        $scope.submitForm = function (target) {
             var httpRequest = $http({
                 method: 'POST',
                 url: '/scripts/dobackup.php',
@@ -18,13 +18,11 @@ angular.module('myApp.admin', ['ngRoute'])
             }).success(function (data, status) {
                 if (data.msg != '') {
                     $scope.msg = data.msg;
+                } else if (data.err != '') {
+                    $scope.err = data.err;
                 }
             }).error(function (data, status) {
-                if (data.err != '') {
-                    $scope.err = data.err;
-                } else {
-                    $scope.err = status;
-                }
+                $scope.err = "Error occurred, status: " + status;
             })
         };
     }]);

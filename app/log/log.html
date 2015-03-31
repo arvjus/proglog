@@ -26,7 +26,6 @@
 
     <label for="weather">Weather:</label>
     <input type="checkbox" name="weather[]" value="normal">Normal
-    <input type="checkbox" name="weather[]" value="calm">Calm
     <input type="checkbox" name="weather[]" value="windy">Windy
     <input type="checkbox" name="weather[]" value="cold">Cold
     <input type="checkbox" name="weather[]" value="hot">Hot
@@ -40,32 +39,31 @@
     <br>
 
     <label for="exercise">Exercise:</label>
-    <select name="exercise" ng-model="exercise">
+    <select name="exercise" ng-model="exercise" ng-change="loadExercise(exercise)">
         <option value="undefined">Undefined</option>
         <option ng-repeat="exercise in exercises" value="{{exercise.id}}">{{exercise.name}}</option>
     </select>
+    <br>
 
-    <div ng-repeat="exercise in exercises">
-        <div ng-repeat="option in exercise.options">
-            <div ng-if="option.html == 'checkbox'">
-                <label for="{{option.name}}">{{option.display}}:</label>
-                <span ng-repeat="value in option.values">
-                    <input type="checkbox" name="{{option.name}}[]" value="{{value}}">{{value}}
-                </span>
-            </div>
-            <div ng-if="option.html == 'radio'">
-                <label for="{{option.name}}">{{option.display}}:</label>
-                <input type="radio" name="{{option.name}}" value="{{option.default}}" checked>{{option.default}}
-                <span ng-repeat="value in option.values">
-                    <input type="radio" name="{{option.name}}" value="{{value}}">{{value}}
-                </span>
-            </div>
-            <div ng-if="option.html == 'range'">
-                <label for="{{option.name}}">{{option.display}}:</label>
-                <input type="range" name="{{option.name}}" ng-model="option_range" ng-init="option_range=option.default"
-                       min="{{option.min}}" max="{{option.max}}" step="{{option.step}}">
-                <span ng-bind="option_range"></span>{{option.units}}
-            </div>
+    <div ng-repeat="option in options">
+        <div ng-if="option.html == 'checkbox'">
+            <label for="{{option.name}}">{{option.display}}:</label>
+            <span ng-repeat="value in option.values">
+                <input type="checkbox" name="{{option.name}}[]" value="{{value}}">{{value}}
+            </span>
+        </div>
+        <div ng-if="option.html == 'radio'">
+            <label for="{{option.name}}">{{option.display}}:</label>
+            <input type="radio" name="{{option.name}}" value="{{option.default}}" checked>{{option.default}}
+            <span ng-repeat="value in option.values">
+                <input type="radio" name="{{option.name}}" value="{{value}}">{{value}}
+            </span>
+        </div>
+        <div ng-if="option.html == 'range'">
+            <label for="{{option.name}}">{{option.display}}:</label>
+            <input type="range" name="{{option.name}}" ng-model="option_range" ng-init="option_range=option.default"
+                   min="{{option.min}}" max="{{option.max}}" step="{{option.step}}">
+            <span ng-bind="option_range"></span>{{option.units}}
         </div>
     </div>
 
@@ -86,6 +84,8 @@
     <input type="submit" value="Save">
     <input type="reset" value="Reset">
 </form>
+<div>{{msg}}</div>
+<div>{{err}}</div>
 
 
 

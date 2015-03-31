@@ -5,14 +5,14 @@
   "options": [
     {
       "name": "area",
-      "display": "Area",
+      "display": "Area size",
       "html": "radio",
       "default": "s",
       "values": ["m", "l", "xl"]
     },
     {
       "name": "algo",
-      "display": "Algorithm",
+      "display": "Control algorithm",
       "html": "range",
       "min": "1",
       "max": "12",
