@@ -1,10 +1,10 @@
 <h1>Administration</h1>
 
-<p>
+<form>
     <label for="target">Target:</label>
-    <input type="date" name="target" ng-model="target" ng-init="target=today">
+    <input type="date" name="target" ng-model="formData.target">
     <br>
     <button ng-click="submitForm()">Backup data</button>
-</p>
+</form>
 <div>{{msg}}</div>
 <div>{{err}}</div>
