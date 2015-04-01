@@ -10,11 +10,12 @@ angular.module('myApp.admin', ['ngRoute'])
     .controller('AdminCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.today = new Date().toISOString().slice(0, 10);
 
-        $scope.submitForm = function (target) {
+        $scope.submitForm = function() {
             var httpRequest = $http({
                 method: 'POST',
                 url: '/scripts/dobackup.php',
-                params: {target: target}
+                data: 'target=' + $scope.target,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function (data, status) {
                 if (data.msg != '') {
                     $scope.msg = data.msg;

@@ -1,6 +1,6 @@
 <?php
 $source = "../data";
-$dest = "../backup/" . $_GET['target'];
+$dest = "../backup/" . $_POST['target'];
 
 if (!file_exists($dest)) {
     mkdir($dest, 0755, true);
