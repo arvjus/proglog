@@ -4,12 +4,8 @@ var MyNamespace = MyNamespace || {};
 
 // Define app level helpers
 MyNamespace.helpers = {
-    toParams: function (obj) {
-        var p = [];
-        for (var key in obj) {
-            p.push(key + '=' + encodeURIComponent(obj[key]));
-        }
-        return p.join('&');
+    dummy: function (arg) {
+        return arg;
     }
 };
 

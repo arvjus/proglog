@@ -18,4 +18,3 @@ foreach (
 
 $json = json_encode(array("msg" => "Data backup to $dest has been create successfully!", "err" => ""));
 print_r($json);
-?>

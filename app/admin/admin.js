@@ -8,13 +8,13 @@ angular.module('myApp.admin', ['ngRoute'])
         });
     }])
     .controller('AdminCtrl', ['$scope', '$http', function ($scope, $http) {
-        $scope.formData = {target: new Date().toISOString().slice(0, 10)};
+        $scope.target = new Date().toISOString().slice(0, 10);
 
         $scope.submitForm = function() {
-            var httpRequest = $http({
+            $http({
                 method: 'POST',
                 url: '/scripts/dobackup.php',
-                data: MyNamespace.helpers.toParams($scope.formData),
+                data: 'target=' + encodeURIComponent($scope.target),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function (data, status) {
                 if (data.msg != '') {

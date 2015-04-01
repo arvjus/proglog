@@ -12,7 +12,7 @@ angular.module('myApp.stats', ['ngRoute'])
         $scope.dateTo = new Date().toISOString().slice(0, 10);
 
         $scope.loadData = function (dateFrom, dateTo) {
-            var httpRequest = $http({
+            $http({
                 method: 'GET',
                 url: '/scripts/getstats.php',
                 params: {dateFrom: dateFrom, dateTo: dateTo}

@@ -1,6 +1,3 @@
-<html>
-<body>
-
 <?php
 /*
  * Record fields are separated by '|' (pipe) character.
@@ -56,11 +53,6 @@ fwrite($fh,
     $_POST["crashes"] . "|" .
     $_POST["comments"] . "\n");
 fclose($fh);
-?>
 
-<p>A new log record has been added successfully!</p>
-<a href="/#log"><input type="button" value="Back"></a>
-
-</body>
-</html>
-
+$json = json_encode(array("msg" => "A new log record has been added successfully!", "err" => ""));
+print_r($json);
