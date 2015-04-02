@@ -8,6 +8,11 @@ angular.module('myApp.stats', ['ngRoute'])
         });
     }])
     .controller('StatsCtrl', ['$scope', '$http', function ($scope, $http) {
+        $scope.isActive = function (viewLocation) {
+            var active = (viewLocation === $location.path());
+            return active;
+        };
+
         $scope.dateFrom = "2010-01-01";
         $scope.dateTo = new Date().toISOString().slice(0, 10);
 

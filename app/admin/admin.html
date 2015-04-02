@@ -1,10 +1,21 @@
 <h1>Administration</h1>
+<br>
 
-<form>
-    <label for="target">Target:</label>
-    <input type="date" name="target" ng-model="target">
-    <br>
-    <button ng-click="submitForm()">Backup data</button>
-</form>
-<div>{{msg}}</div>
-<div>{{err}}</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Backups of data files</div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="control-label col-md-1" for="target">Target:</label>
+                <input class="input-sm" type="date" name="target" ng-model="target">
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-1"></label>
+                <button class="btn btn-success btn-sm" ng-click="submitForm()">Backup data</button>
+            </div>
+        </form>
+        <div ng-if="msg !== undefined" class="alert alert-success">{{msg}}</div>
+        <div ng-if="err !== undefined" class="alert alert-danger">{{err}}</div>
+    </div>
+</div>
+

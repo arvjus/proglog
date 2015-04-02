@@ -1,24 +1,34 @@
-<h1>Show statistics</h1>
+<h1>Log statistics</h1>
+<br>
+<form class="form-horizontal" role="form">
+    <div class="form-group well well-lg">
+        <label class="control-label col-md-1" for="dateFrom">From:</label>
 
-<p>
-    <label for="dateFrom">From:</label>
-    <input type="date" name="dateFrom" ng-model="dateFrom">&nbsp;
-    <label for="dateTo">To:</label>
-    <input type="date" name="dateTo" ng-model="dateTo">
-    <button ng-click="loadData(dateFrom, dateTo)">Refresh</button>
-</p>
+        <div class="col-md-2">
+            <input class="input-sm" type="date" name="dateFrom" ng-model="dateFrom">
+        </div>
+        <label class="control-label col-md-1" for="dateTo">To:</label>
 
-<p>
-<table>
+        <div class="col-md-2">
+            <input class="input-sm" type="date" name="dateTo" ng-model="dateTo">
+        </div>
+        <button class="btn btn-success btn-sm" ng-click="loadData(dateFrom, dateTo)">Refresh</button>
+    </div>
+</form>
+<div ng-if="msg !== undefined" class="alert alert-success">{{msg}}</div>
+<div ng-if="err !== undefined" class="alert alert-danger">{{err}}</div>
+
+<table class="table table-striped  table-condensed">
+    <thead>
     <tr>
         <th>Name</th>
-        <th/>
         <th>Value</th>
     </tr>
+    </thead>
+    <tbody>
     <tr ng-repeat="(name, value) in stats">
         <td>{{name}}</td>
-        <td></td>
         <td>{{value}}</td>
     </tr>
+    </tbody>
 </table>
-</p>

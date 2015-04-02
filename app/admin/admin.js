@@ -10,6 +10,11 @@ angular.module('myApp.admin', ['ngRoute'])
     .controller('AdminCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.target = new Date().toISOString().slice(0, 10);
 
+        $scope.isActive = function (viewLocation) {
+            var active = (viewLocation === $location.path());
+            return active;
+        };
+
         $scope.submitForm = function() {
             $http({
                 method: 'POST',

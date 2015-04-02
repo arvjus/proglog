@@ -1,88 +1,117 @@
 <h1>Log exercise progress</h1>
+<br>
 
-<form name="logform">
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label class="control-label col-md-2" for="date">Date:</label>
+        <input class="input-sm" type="date" name="date" ng-model="formData.date">
+    </div>
 
-    <label for="date">Date:</label>
-    <input type="date" name="date" ng-model="formData.date">
-    <br>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="duration">Duration:&nbsp;<span ng-bind="formData.duration"></span>
+            min</label>
+        <input class="input-sm" type="range" name="duration" ng-model="formData.duration" min="0" max="60" step="5">
+    </div>
 
-    <label for="duration">Duration:</label>
-    <input type="range" name="duration" ng-model="formData.duration" min="0" max="60" step="5">
-    <span ng-bind="formData.duration"></span> min
-    <br>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="environment">Environment:</label>&nbsp;
+        <label class="radio-inline input-sm"><input type="radio" name="environment" ng-model="formData.environment"
+                                                    value="undefined">Undefined</label>
+        <label class="radio-inline input-sm"><input type="radio" name="environment" ng-model="formData.environment"
+                                                    value="sim">Simulator</label>
+        <label class="radio-inline input-sm"><input type="radio" name="environment" ng-model="formData.environment"
+                                                    value="irl">IRL</label>
+    </div>
 
-    <label for="environment">Environment:</label>
-    <input type="radio" name="environment" ng-model="formData.environment" value="undefined">Undefined
-    <input type="radio" name="environment" ng-model="formData.environment" value="sim">Simulator
-    <input type="radio" name="environment" ng-model="formData.environment" value="irl">IRL
-    <br>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="model">Model:</label>
+        <select class="input-sm" name="model" ng-model="formData.model">
+            <option value="undefined">Undefined</option>
+            <option ng-repeat="model in models" value="{{model.id}}">{{model.name}}</option>
+        </select>
+    </div>
 
-    <label for="model">Model:</label>
-    <select name="model" ng-model="formData.model">
-        <option value="undefined">Undefined</option>
-        <option ng-repeat="model in models" value="{{model.id}}">{{model.name}}</option>
-    </select>
-    <br>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="weather">Weather:</label>&nbsp;
+        <label class="checkbox-inline input-sm"><input type="checkbox" name="weather" ng-model="formDataWeather.normal"
+                                                       value="normal">Normal</label>
+        <label class="checkbox-inline input-sm"><input type="checkbox" name="weather"
+                                                       ng-model="formDataWeather.windy" value="windy">Windy</label>
+        <label class="checkbox-inline input-sm"><input type="checkbox" name="weather"
+                                                       ng-model="formDataWeather.cold" value="cold">Cold</label>
+        <label class="checkbox-inline input-sm"><input type="checkbox" name="weather"
+                                                       ng-model="formDataWeather.hot" value="hot">Hot</label>
+        <label class="checkbox-inline input-sm"><input type="checkbox" name="weather"
+                                                       ng-model="formDataWeather.raining"
+                                                       value="raining">Raining</label>
+        <label class="checkbox-inline input-sm"><input type="checkbox" name="weather"
+                                                       ng-model="formDataWeather.snowing"
+                                                       value="snowing">Snowing</label>
+    </div>
 
-    <label for="weather">Weather:</label>
-    <input type="checkbox" name="weather" ng-model="formDataWeather.normal" value="normal">Normal
-    <input type="checkbox" name="weather" ng-model="formDataWeather.windy" value="windy">Windy
-    <input type="checkbox" name="weather" ng-model="formDataWeather.cold" value="cold">Cold
-    <input type="checkbox" name="weather" ng-model="formDataWeather.hot" value="hot">Hot
-    <input type="checkbox" name="weather" ng-model="formDataWeather.raining" value="raining">Raining
-    <input type="checkbox" name="weather" ng-model="formDataWeather.snowing" value="snowing">Snowing
-    <br>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="speed">Speed:&nbsp;<span class="range-value"
+                                                                            ng-bind="formData.speed"></span>%</label>
+        <input class="input-sm" type="range" name="speed" ng-model="formData.speed" min="50" max="130" step="10">
+    </div>
 
-    <label for="speed">Speed:</label>
-    <input type="range" name="speed" ng-model="formData.speed" min="50" max="130" step="10">
-    <span ng-bind="formData.speed"></span>%
-    <br>
-
-    <label for="exercise">Exercise:</label>
-    <select name="exercise" ng-model="formData.exercise" ng-change="loadExercise()">
-        <option value="undefined">Undefined</option>
-        <option ng-repeat="exercise in exercises" value="{{exercise.id}}">{{exercise.name}}</option>
-    </select>
-    <br>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="exercise">Exercise:</label>
+        <select class="input-sm" name="exercise" ng-model="formData.exercise" ng-change="loadExercise()">
+            <option value="undefined">Undefined</option>
+            <option ng-repeat="exercise in exercises" value="{{exercise.id}}">{{exercise.name}}</option>
+        </select>
+    </div>
 
     <div ng-repeat="option in options">
-        <div ng-if="option.html == 'checkbox'">
-            <label for="{{option.name}}">{{option.display}}:</label>
-            <span ng-repeat="value in option.values">
-                <input class="dynamic" type="checkbox" name="{{option.name}}[]" value="{{value}}">{{value}}
-            </span>
-        </div>
-        <div ng-if="option.html == 'radio'">
-            <label for="{{option.name}}">{{option.display}}:</label>
-            <input class="dynamic" type="radio" name="{{option.name}}" value="{{option.default}}" checked>{{option.default}}
-            <span ng-repeat="value in option.values">
-                <input class="dynamic" type="radio" name="{{option.name}}" value="{{value}}">{{value}}
-            </span>
-        </div>
-        <div ng-if="option.html == 'range'">
-            <label for="{{option.name}}">{{option.display}}:</label>
-            <input class="dynamic" type="range" name="{{option.name}}" ng-model="option_range" ng-init="option_range=option.default"
-                   min="{{option.min}}" max="{{option.max}}" step="{{option.step}}">
-            <span ng-bind="option_range"></span>{{option.units}}
+        <div class="form-group">
+            <div ng-if="option.html == 'checkbox'">
+                <label class="control-label col-md-2" for="{{option.name}}">{{option.display}}:</label>&nbsp;
+                <label class="checkbox-inline input-sm" ng-repeat="value in option.values">
+                    <input class="dynamic" type="checkbox" name="{{option.name}}" value="{{value}}">{{value}}
+                </label>
+            </div>
+            <div ng-if="option.html == 'radio'">
+                <label class="control-label col-md-2" for="{{option.name}}">{{option.display}}:</label>&nbsp;
+                <label class="radio-inline input-sm"><input class="dynamic" type="radio" name="{{option.name}}"
+                                                            value="{{option.default}}"
+                                                            checked>{{option.default}}</label>
+                <label class="radio-inline input-sm" ng-repeat="value in option.values">
+                    <input class="dynamic" type="radio" name="{{option.name}}" value="{{value}}">{{value}}
+                </label>
+            </div>
+            <div ng-if="option.html == 'range'">
+                <label class="control-label col-md-2" for="{{option.name}}">{{option.display}}:&nbsp;<span
+                        ng-bind="option_range"></span>{{option.units}}</label>
+                <input class="input-sm dynamic" type="range" name="{{option.name}}" ng-model="option_range"
+                       ng-init="option_range=option.default"
+                       min="{{option.min}}" max="{{option.max}}" step="{{option.step}}">
+
+            </div>
         </div>
     </div>
 
-    <label for="rating">Rating:</label>
-    <input type="range" name="rating" ng-model="formData.rating" min="0" max="5">
-    <span ng-bind="formData.rating"></span>
-    <br>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="rating">Rating:&nbsp;<span ng-bind="formData.rating"></span></label>
+        <input class="input-sm" type="range" name="rating" ng-model="formData.rating" min="0" max="5">
+    </div>
 
-    <label for="crashes">Crashes:</label>
-    <input type="range" name="crashes" ng-model="formData.crashes" min="0" max="15">
-    <span ng-bind="formData.crashes"></span>
-    <br>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="crashes">Crashes:&nbsp;<span
+                ng-bind="formData.crashes"></span></label>
+        <input class="input-sm" type="range" name="crashes" ng-model="formData.crashes" min="0" max="15">
+    </div>
 
-    <label for="comments">Comments:</label>
-    <input type="text" name="comments" ng-model="formData.comments">
-    <br>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="comments">Comments:</label>
+        <input class="input-sm" type="text" name="comments" ng-model="formData.comments">
+    </div>
 
-    <button ng-click="submitForm()">Save</button>
+    <div class="form-group">
+        <label class="control-label col-md-2"></label>
+        <button class="btn btn-success btn-sm" ng-click="submitForm()">Add new record</button>
+    </div>
 </form>
-<div>{{msg}}</div>
-<div>{{err}}</div>
+<div ng-if="msg !== undefined" class="alert alert-success">{{msg}}</div>
+<div ng-if="err !== undefined" class="alert alert-danger">{{err}}</div>
 

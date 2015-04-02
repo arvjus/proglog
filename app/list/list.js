@@ -11,6 +11,11 @@ angular.module('myApp.list', ['ngRoute'])
         $scope.dateFrom = "2010-01-01";
         $scope.dateTo = new Date().toISOString().slice(0, 10);
 
+        $scope.isActive = function (viewLocation) {
+            var active = (viewLocation === $location.path());
+            return active;
+        };
+
         $scope.loadData = function (dateFrom, dateTo) {
             $http({
                 method: 'GET',

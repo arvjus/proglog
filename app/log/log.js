@@ -8,6 +8,12 @@ angular.module('myApp.log', ['ngRoute'])
         });
     }])
     .controller('LogCtrl', ['$scope', '$http', function ($scope, $http) {
+
+        $scope.isActive = function (viewLocation) {
+            var active = (viewLocation === $location.path());
+            return active;
+        };
+
         $scope.formData = {
             date: new Date().toISOString().slice(0, 10),
             duration: 15,
