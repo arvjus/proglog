@@ -5,6 +5,7 @@
  * version, date, duration, environment, model, weather, speed, exercise, options, rating, crashes, comments
  */
 $header = array("date", "duration", "environment", "model", "weather", "speed", "exercise", "options", "rating", "crashes", "comments");
+$units = array("", " min", "", "", "", "%", "", "", "", "", "");
 
 // read log records
 $dateFrom = $_GET['dateFrom'];
@@ -19,4 +20,4 @@ while (!feof($fh)) {
 fclose($fh);
 
 // return json
-echo json_encode(array("header" => $header, "records" => array_reverse($records)));
+echo json_encode(array("header" => $header, "units" => $units, "records" => array_reverse($records)));

@@ -26,7 +26,7 @@
     </thead>
     <tbody>
     <tr ng-repeat="record in list.records">
-        <td ng-repeat="field in record track by $index">{{field}}</td>
+        <td ng-repeat="field in record track by $index">{{field}}{{list.units[$index]}}</td>
     </tr>
     </tbody>
 </table>
