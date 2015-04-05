@@ -1,7 +1,13 @@
 [
 {
-  "id": "slow-piros",
-  "name": "Slow Piros",
+  "id": "flying-around",
+  "name": "Flying Around",
+  "options": []
+},
+
+{
+  "id": "hover-tr",
+  "name": "Hover Training",
   "options": [
     {
       "name": "area",
@@ -53,9 +59,61 @@
   ]
 },
 {
+  "id": "reaction-tr",
+  "name": "Reaction Training",
+  "options": [
+    {
+      "name": "height",
+      "display": "Height",
+      "html": "radio",
+      "default": "easy",
+      "values": ["medium", "difficult"]
+    },
+    {
+      "name": "orient",
+      "display": "Orientation",
+      "html": "radio",
+      "default": "easy",
+      "values": ["medium", "difficult"]
+    }
+  ]
+},
+
+
+{
   "id": "lazy-8s",
   "name": "Lazy 8s",
   "options": []
+},
+
+{
+  "id": "dummy",
+  "name": "Dummy",
+  "options": [
+    {
+      "name": "range",
+      "display": "range",
+      "html": "range",
+      "min": "1",
+      "max": "10",
+      "step": "1",
+      "default": "2",
+      "units": " x"
+    },
+    {
+      "name": "radio",
+      "display": "radio",
+      "html": "radio",
+      "default": "x",
+      "values": ["y", "z"]
+    },
+    {
+      "name": "checkbox",
+      "display": "checkbox",
+      "html": "checkbox",
+      "values": ["x", "y", "z"]
+    }  
+  ]
 }
 ]
 

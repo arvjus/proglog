@@ -20,23 +20,14 @@
 </head>
 <body>
 
-<script type="text/javascript">
-    function isActive (viewLocation) {
-        var active = (viewLocation === $location.path());
-        return active;
-    };
-
-</script>
-
 
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <div ng-controller="MenuCtrl" ng-controller="MainCtrl" class="container-fluid">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#/log">Log</a></li>
-            <li ng-class="{ active: isActive('/log') }"><a href="#/log">Log</a></li>
-            <li ng-class="{ active: isActive('/list') }"><a href="#/list">List</a></li>
-            <li ng-class="{ active: isActive('/stats') }"><a href="#/stats">Statistics</a></li>
-            <li ng-class="{ active: isActive('/admin') }"><a href="#/admin">Admin</a></li>
+            <li ng-class="{ 'active': isActive('/log') }"><a href="#/log">Log</a></li>
+            <li ng-class="{ 'active': isActive('/list') }"><a href="#/list">List</a></li>
+            <li ng-class="{ 'active': isActive('/stats') }"><a href="#/stats">Statistics</a></li>
+            <li ng-class="{ 'active': isActive('/admin') }"><a href="#/admin">Admin</a></li>
         </ul>
     </div>
 </nav>
