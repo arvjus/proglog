@@ -1,5 +1,5 @@
 # proglog
-Progress Logger - application for tracking progress of R/C Aircraft training.
+Progress Logger - application for tracking progress of R/C Model Aircraft training.
 
 
 Setup
