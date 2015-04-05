@@ -1,119 +1,206 @@
 [
-{
-  "id": "flying-around",
-  "name": "Flying Around",
-  "options": []
-},
+    {
+        "id": "flying-around",
+        "name": "Flying Around",
+        "options": [
+            {
+                "name": "having-fun",
+                "display": "Having Fun",
+                "html": "checkbox",
+                "values": ["yes"]
+            }
+        ]
+    },
+    {
+        "id": "hover",
+        "name": "Hover",
+        "options": [
+            {
+                "name": "tail-in",
+                "display": "Tail In",
+                "html": "checkbox",
+                "values": ["one-spot", "side-by-side", "front-to-back", "box", "triangle"]
+            },
+            {
+                "name": "nose-in",
+                "display": "Nose In",
+                "html": "checkbox",
+                "values": ["one-spot", "side-by-side", "front-to-back", "box", "triangle"]
+            },
+            {
+                "name": "sideways",
+                "display": "Sideways",
+                "html": "checkbox",
+                "values": ["one-spot", "side-by-side", "front-to-back", "box", "triangle"]
+            }
+        ]
+    },
 
-{
-  "id": "hover-tr",
-  "name": "Hover Training",
-  "options": [
     {
-      "name": "area",
-      "display": "Area size",
-      "html": "radio",
-      "default": "s",
-      "values": ["m", "l", "xl"]
+        "id": "side-to-side",
+        "name": "Travel Side to side",
+        "options": []
     },
     {
-      "name": "algo",
-      "display": "Control algorithm",
-      "html": "range",
-      "min": "1",
-      "max": "12",
-      "step": "1",
-      "default": "10",
-      "units": ""
+        "id": "lazy-8s",
+        "name": "Lazy 8s",
+        "options": [
+            {
+                "name": "direction",
+                "display": "Direction",
+                "html": "checkbox",
+                "values": ["tail-in", "nose-in", "sideways", "of-travel"]
+            }
+        ]
     },
     {
-      "name": "orient",
-      "display": "Orientation",
-      "html": "radio",
-      "default": "upright",
-      "values": ["inverted"]
+        "id": "hover-tr",
+        "name": "Hover Training",
+        "options": [
+            {
+                "name": "area",
+                "display": "Area size",
+                "html": "radio",
+                "default": "s",
+                "values": ["m", "l", "xl"]
+            },
+            {
+                "name": "algo",
+                "display": "Control algorithm",
+                "html": "range",
+                "min": "1",
+                "max": "12",
+                "step": "1",
+                "default": "10",
+                "units": ""
+            },
+            {
+                "name": "orient",
+                "display": "Orientation",
+                "html": "radio",
+                "default": "upright",
+                "values": ["inverted"]
+            },
+            {
+                "name": "rotspeed",
+                "display": "Rotation Speed",
+                "html": "range",
+                "min": "1",
+                "max": "15",
+                "step": "1",
+                "default": "2",
+                "units": " rpm"
+            },
+            {
+                "name": "rotdir",
+                "display": "Rotation Direction",
+                "html": "radio",
+                "default": "cw",
+                "values": ["ccw"]
+            },
+            {
+                "name": "ctrl",
+                "display": "Taken Control",
+                "html": "checkbox",
+                "values": ["cyclic", "collective", "rudder"]
+            }
+        ]
     },
     {
-      "name": "rotspeed",
-      "display": "Rotation Speed",
-      "html": "range",
-      "min": "1",
-      "max": "15",
-      "step": "1",
-      "default": "2",
-      "units": " rpm"
+        "id": "reaction-tr",
+        "name": "Reaction Training",
+        "options": [
+            {
+                "name": "height",
+                "display": "Height",
+                "html": "radio",
+                "default": "easy",
+                "values": ["medium", "difficult"]
+            },
+            {
+                "name": "orient",
+                "display": "Orientation",
+                "html": "radio",
+                "default": "easy",
+                "values": ["medium", "difficult"]
+            }
+        ]
     },
     {
-      "name": "rotdir",
-      "display": "Rotation Direction",
-      "html": "radio",
-      "default": "cw",
-      "values": ["ccw"]
+        "id": "auto-rotation-tr",
+        "name": "Auto Rotation Training",
+        "options": []
     },
     {
-      "name": "ctrl",
-      "display": "Taken Control",
-      "html": "checkbox",
-      "values": ["cyclic", "collective", "rudder"]
+        "id": "failure-simulation-tr",
+        "name": "Failure Simulation Training",
+        "options": [
+            {
+                "name": "sp-servo",
+                "display": "SP Servo",
+                "html": "checkbox",
+                "values": ["on"]
+            },
+            {
+                "name": "tail-servo",
+                "display": "Tail Servo",
+                "html": "checkbox",
+                "values": ["on"]
+            },
+            {
+                "name": "belt",
+                "display": "Belt Wearout/Broken",
+                "html": "checkbox",
+                "values": ["on"]
+            },
+            {
+                "name": "driver-gear",
+                "display": "Driver Gear Wearout",
+                "html": "checkbox",
+                "values": ["on"]
+            },
+            {
+                "name": "engine",
+                "display": "Engine Broken",
+                "html": "checkbox",
+                "values": ["on"]
+            },
+            {
+                "name": "controller",
+                "display": "Controller Fault",
+                "html": "checkbox",
+                "values": ["on"]
+            }
+        ]
+    },
+    {
+        "id": "dummy",
+        "name": "Dummy",
+        "options": [
+            {
+                "name": "range",
+                "display": "range",
+                "html": "range",
+                "min": "1",
+                "max": "10",
+                "step": "1",
+                "default": "2",
+                "units": " x"
+            },
+            {
+                "name": "radio",
+                "display": "radio",
+                "html": "radio",
+                "default": "x",
+                "values": ["y", "z"]
+            },
+            {
+                "name": "checkbox",
+                "display": "checkbox",
+                "html": "checkbox",
+                "values": ["x", "y", "z"]
+            }
+        ]
     }
-  ]
-},
-{
-  "id": "reaction-tr",
-  "name": "Reaction Training",
-  "options": [
-    {
-      "name": "height",
-      "display": "Height",
-      "html": "radio",
-      "default": "easy",
-      "values": ["medium", "difficult"]
-    },
-    {
-      "name": "orient",
-      "display": "Orientation",
-      "html": "radio",
-      "default": "easy",
-      "values": ["medium", "difficult"]
-    }
-  ]
-},
-
-
-{
-  "id": "lazy-8s",
-  "name": "Lazy 8s",
-  "options": []
-},
-
-{
-  "id": "dummy",
-  "name": "Dummy",
-  "options": [
-    {
-      "name": "range",
-      "display": "range",
-      "html": "range",
-      "min": "1",
-      "max": "10",
-      "step": "1",
-      "default": "2",
-      "units": " x"
-    },
-    {
-      "name": "radio",
-      "display": "radio",
-      "html": "radio",
-      "default": "x",
-      "values": ["y", "z"]
-    },
-    {
-      "name": "checkbox",
-      "display": "checkbox",
-      "html": "checkbox",
-      "values": ["x", "y", "z"]
-    }  
-  ]
-}
 ]
 
