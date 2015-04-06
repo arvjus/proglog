@@ -14,13 +14,19 @@ Copyright © 2015 Arvid Juskaitis <arvydas.juskaitis@gmail.com>
 
 Click to view.
 
-[![List expenses](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/list-expenses-thumb.png)](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/list-expenses.png)
 
-[![Show summary](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/summary-thumb.png)](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/summary.png)
+https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/admin.png
+https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/admin.png
+https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/admin.png
 
-[![Add new income](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-income-thumb.png)](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-income.png)
+[![New log record](https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/log-thumb.png)](https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/log.png)
 
-[![Add new expense](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-expense-thumb.png)](https://raw.githubusercontent.com/arvjus/fintrack/master/screenshots/add-expense.png)
+[![Plain log records](https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/list-thumb.png)](https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/list.png)
+
+[![Log statistics](https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/stats-thumb.png)](https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/stats.png)
+
+[![Administration](https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/admin-thumb.png)](https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/admin.png)
+
 
 
 ### Prerequisites
@@ -43,13 +49,6 @@ Run dev server:
 nmp start
 
 http://localhost:8000/app/index.html
-
-
-
-
-## Fintrack - Personal Financial Tracking Software
-
-Powered by [Laravel 4 Framework](http://github.com/laravel/framework)
 
 
 
