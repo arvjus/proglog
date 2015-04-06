@@ -56,4 +56,4 @@ Configuration files have JSON format.
 ### Configuration
 
 There are two configuration files models.json and exercises.json. Application comes with some pre-configured models and exercises, some of them based on training program, available in Heli-X flight simulator. But that is easy to change to suit your own needs.
-Hint - duplicate last item, called 'dummy', and create new one in exercises configuration file. This 'dummy' items contains all available options, supported by application.
+Hint - duplicate last item, called 'dummy', and create new one in exercises configuration file. That item contains all available options, supported by application.
