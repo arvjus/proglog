@@ -1,4 +1,4 @@
-## Progress Logger - application for logging progress of R/C model aircraft training.
+## Progress Logger - log progress of R/C model aircraft training.
 
 Powered by [AngularJS](https://angularjs.org)
 
@@ -13,11 +13,6 @@ Copyright © 2015 Arvid Juskaitis <arvydas.juskaitis@gmail.com>
 ### Some of screenshots
 
 Click to view.
-
-
-https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/admin.png
-https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/admin.png
-https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/admin.png
 
 [![New log record](https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/log-thumb.png)](https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/log.png)
 
@@ -38,54 +33,27 @@ https://raw.githubusercontent.com/arvjus/proglog/master/screenshots/admin.png
 
 ### Installation
 
-
-Setup
------
-Install dependencies:
-cd /path/to/proglog
-npm install
-
-Run dev server:
-nmp start
-
-http://localhost:8000/app/index.html
-
-
-
-Clone repository, install components
+Clone repository, install dependencies
 ```bash
-$ git clone https://github.com/arvjus/fintrack
-$ cd fintrack
-$ composer.phar install
+$ git clone https://github.com/arvjus/proglog.git
+$ cd proglog
+$ npm install
 ```
 
-Install database, configure in app/configure/database.php
-
-Migrate database, seed test data
+Go to 'app' directory, start built-in web server
 ```bash
-$ php artisan migrate:make
-$ php artisan migrate:refresh
-$ php db:seed
+$ (cd app; php -S localhost:8000)
 ```
 
-Optionally, run unitests
-```bash
-$ phpunit
-```
+Go to [http://localhost:8000](http://localhost:8000)
 
 
-Start built-in web server
-```bash
-$ php artisan serve
-```
+### Data format
 
-Go to [http://localhost:8000](http://localhost:8000) and login with admin/admin123
+Log records are stored in .csv format, with '|' (pipe) character as field separator.
+Configuration files have JSON format.
 
+### Configuration
 
-### Changelog
-
-2014-05-17 Release Version 1.0
-
-
-
-
+There are two configuration files models.json and exercises.json. Application comes with some pre-configured models and exercises, some of them based on training program, available in Heli-X flight simulator. But that is easy to change to suit your own needs.
+Hint - duplicate last item, called 'dummy', and create new one in exercises configuration file. This 'dummy' items contains all available options, supported by application.
