@@ -1,14 +1,16 @@
 
 Configure to run as virtual host in apache (on MacOSX):
 
-1. add www.proglog.com to /etc/hosts
+1. add www.proglog.org to /etc/hosts
 
-2. create /Library/WebServer/Documents/proglog directory, fix access rights
+2. create /Library/WebServer/Documents/proglog directory
 
 3. build application, copy <proglog>/app to dir, created in #2
 
 4. copy proglog.conf to /etc/apache2/other
 
-5. restart apache:
+5 fix access rights on /Library/WebServer/Documents/proglog
+
+6. restart apache:
 sudo apachectl restart
 
