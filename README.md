@@ -48,12 +48,13 @@ $ (cd app; php -S localhost:8000)
 Go to [http://localhost:8000](http://localhost:8000)
 
 
-### Data format
+### Backend
 
+Few PHP sripts serves as data providers for application. 
 Log records are stored in .csv format, with '|' (pipe) character as field separator.
-Configuration files have JSON format.
+
 
 ### Configuration
 
-There are two configuration files models.json and exercises.json. Application comes with some pre-configured models and exercises, some of them based on training program, available in Heli-X flight simulator. But that is easy to change to suit your own needs.
+Configuration files have JSON format, there are two of them - models.json and exercises.json. Application comes with some pre-configured models and exercises, some of them based on training program, available in Heli-X flight simulator. But that is easy to change to suit your own needs.
 Hint - duplicate last item, called 'dummy', and create new one in exercises configuration file. That item contains all available options, supported by application.
